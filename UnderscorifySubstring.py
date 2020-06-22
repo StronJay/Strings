@@ -22,6 +22,7 @@ def getLocations(string, substring):
 def collapse(locations):
 	newLocations = [locations[0]]
 	previous = newLocations[0]
+	test = [locations[0]]
 	print(locations)
 	for i in range(1, len(locations)):
 		current = locations[i]
@@ -29,7 +30,9 @@ def collapse(locations):
 			previous[1] = current[1]
 		else:
 			newLocations.append(current)
+			test.append(previous)
 			previous = current
+	print(test)
 	return newLocations
 
 
