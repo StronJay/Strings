@@ -12,18 +12,19 @@ def getSubstringBounds(bigString, targetCharCounts):
     substringBounds = [0, float("inf")]
     substringCharCounts = {}
     numUniqueChars = len(targetCharCounts.keys())
-    #print(numUniqueChars)
+    # print(numUniqueChars)
     numUniqueCharsDone = 0
     leftIdx = 0
     rightIdx = 0
     while rightIdx < len(bigString):
         rightChar = bigString[rightIdx]
-        #print(rightChar)
+        # print(rightChar)
         if rightChar not in targetCharCounts:
             rightIdx += 1
             continue
         increaseCharCount(rightChar, substringCharCounts)
-        print(substringCharCounts, "TARGET:", targetCharCounts, "Done:", numUniqueCharsDone, "start:", rightIdx, "Late bloomer:", leftIdx)
+        print(substringCharCounts, "TARGET:", targetCharCounts, "Done:",
+              numUniqueCharsDone, "start:", rightIdx, "Late bloomer:", leftIdx)
         if substringCharCounts[rightChar] == targetCharCounts[rightChar]:
             numUniqueCharsDone += 1
         while numUniqueCharsDone == numUniqueChars and leftIdx <= rightIdx:
@@ -42,9 +43,8 @@ def getSubstringBounds(bigString, targetCharCounts):
     return substringBounds
 
 
-
 def getCloserBounds(idx1, idx2, idx3, idx4):
-    print("    INDICES:          ",idx1, idx2, idx3, idx4)
+    print("    INDICES:          ", idx1, idx2, idx3, idx4)
     return [idx1, idx2] if idx2 - idx1 < idx4 - idx3 else [idx3, idx4]
 
 
